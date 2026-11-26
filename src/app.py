@@ -19,9 +19,9 @@ BOUND_WALLET = "0x7789f243fd6d569586354a9dd66c0b105f77168b"
 
 def _resolve_identity() -> evidence_api.AgentIdentity:
     return evidence_api.AgentIdentity(
-        agent_id=os.environ.get("DELPHI_AGENT_ID", DEFAULT_AGENT_ID),
-        agent_harness=os.environ.get("DELPHI_HARNESS", DEFAULT_HARNESS),
-        agent_model=os.environ.get("DELPHI_MODEL", DEFAULT_MODEL),
+        agent_id=os.environ.get("DELPHI_AGENT_ID") or DEFAULT_AGENT_ID,
+        agent_harness=os.environ.get("DELPHI_AGENT_HARNESS") or os.environ.get("DELPHI_HARNESS") or DEFAULT_HARNESS,
+        agent_model=os.environ.get("DELPHI_AGENT_MODEL") or os.environ.get("DELPHI_MODEL") or DEFAULT_MODEL,
     )
 
 
